@@ -16,7 +16,7 @@ export default {
 <style lang="scss" scoped>
     h1 {
 
-      margin: 10px;
+      margin: 10px 10px 5px 10px;
 
       font-family: Neuropol;
       color: #003049;

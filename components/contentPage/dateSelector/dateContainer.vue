@@ -4,7 +4,8 @@
           <dateCarousel/>
         </div>
         <div class="rightPart">
-          <classicButton :imgButton="imgSrc('calendarIcone.svg')" action="openCalendar" />
+          <classicButton :imgButton="imgSrc('calendarIcone.svg')" action="openCalendar" :calendar="true" />
+          <button class="resetBtn">reset</button>
         </div>
     </div>
 </template>
@@ -31,11 +32,40 @@ export default {
 
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     padding: 20px 0px 10px;
     border-top: 1px solid #F77F00;
     margin: 0 auto;
     width: 90%;
+
+    .rightPart {
+
+      width: fit-content;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .resetBtn {
+
+        margin-top: 10px;
+        width: 50px;
+        background-color: white;
+        border: none;
+        outline: none;
+        border-radius: 8px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        padding: 5px;
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+
+        color: #021C29;
+
+      }
+
+    }
     
   }
 

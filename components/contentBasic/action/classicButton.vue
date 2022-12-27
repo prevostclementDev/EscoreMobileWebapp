@@ -1,6 +1,7 @@
 <template>
     <button class="btnBasic">
       <img :src="imgButton" alt="">
+      <input  v-if="calendar" type="date" name="" id="">
     </button>
 </template>
 
@@ -11,6 +12,7 @@ export default {
 
     imgButton : "",
     action : "",
+    calendar : false,
 
   }
 }
@@ -40,6 +42,14 @@ export default {
       left: 50%;
       transform: translate(-50%, -50%);
 
+
+    }
+
+    input {
+
+      width: 100%;
+      height: 100%;
+      opacity: 0;
 
     }
 

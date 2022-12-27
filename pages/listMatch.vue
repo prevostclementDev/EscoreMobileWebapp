@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-      <enTete />
+      <enTete srcImg="" gameName="Valorant" />
       <bar>
         <template  #left>
           <classicButton :imgButton="imgSrc('filterIcone.svg')" action="openFilter" />
@@ -11,6 +11,8 @@
       </bar>
 
       <dateContainer/>
+
+      <containerList/>
   
       <piedPage />
       <Menu />
@@ -19,7 +21,7 @@
   
 <script>
 export default {
-    name: 'IndexPage',
+    name: 'macthListPage',
 
     methods : {
 
