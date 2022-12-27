@@ -7,7 +7,7 @@
           <div class="smallText">{{ gameName }}</div>
         </div>
     </div>
-    <div class="img">
+    <div v-if="srcImg != ''" class="img">
       <img src="~/assets/img/AfficheJeuValorant.png" alt="">
     </div>
   </div>

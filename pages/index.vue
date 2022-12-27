@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <enTete gameName="Vos résultats Esport" />
+    <enTete gameName="Vos résultats Esport" srcImg="" />
     <bar>
       <template #right>
         <classicButton :imgButton="imgSrc('burgerIcone.svg')" action="openBurger"  />
