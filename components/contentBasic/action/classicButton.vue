@@ -1,5 +1,5 @@
 <template>
-    <button class="btnBasic">
+    <button @click.prevent="didAction" class="btnBasic">
       <img :src="imgButton" alt="">
       <input  v-if="calendar" type="date" name="" id="">
     </button>
@@ -13,6 +13,15 @@ export default {
     imgButton : "",
     action : "",
     calendar : false,
+
+  },
+  methods : {
+
+    didAction() {
+
+      this.$store.commit('action/'+this.action);
+
+    }
 
   }
 }

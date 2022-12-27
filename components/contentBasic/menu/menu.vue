@@ -2,7 +2,7 @@
   <transition name="fade">
     <div class="popUpMenu" v-if="openPopUp">
         <div class="closePart">
-          <classicButton :imgButton="imgButton('popUpCloseIcone.svg')" action="closePopUp" />
+          <classicButton :imgButton="imgButton('popUpCloseIcone.svg')" action="UnDisplayMenu" />
         </div>
         <div class="groupLinkPart">
           <div class="groupLink">
@@ -10,9 +10,9 @@
               Nos jeux
             </p>
             <ul class="menuLinkPart">
-              <li><NuxtLink to="/">Valorant</NuxtLink></li>
-              <li><NuxtLink to="/">League of legends</NuxtLink></li>
-              <li><NuxtLink to="/">Rocket League</NuxtLink></li>
+              <li><NuxtLink @click="closeMenu" to="/match/valorant">Valorant</NuxtLink></li>
+              <li><NuxtLink @click="closeMenu" to="/match/lol">League of legends</NuxtLink></li>
+              <li><NuxtLink @click="closeMenu" to="/match/rl">Rocket League</NuxtLink></li>
             </ul>
           </div>
         </div>
@@ -27,12 +27,15 @@ export default {
     imgButton($imgName) {
       return require('~/assets/img/' + $imgName);
     },
+    closeMenu() {
+      this.$store.commit('action/UnDisplayMenu');
+    }
   },
   computed : {
 
     openPopUp() {
 
-      return false;
+      return this.$store.state.action.menuOpen;
 
     }
 

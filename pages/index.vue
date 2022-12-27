@@ -3,7 +3,7 @@
     <enTete gameName="Vos résultats Esport" srcImg="" />
     <bar>
       <template #right>
-        <classicButton :imgButton="imgSrc('burgerIcone.svg')" action="openBurger"  />
+        <classicButton :imgButton="imgSrc('burgerIcone.svg')" action="DisplayMenu"  />
       </template>
       
     </bar>
@@ -15,9 +15,9 @@
     </selectedContainer> -->
 
     <selectedContainer name="Choisissez votre jeu">
-      <gameElement :imgSrc="imgSrc('GameValorantChoose.png')" link="/listMatch" />
-      <gameElement :imgSrc="imgSrc('GameLolChoose.png')" link="/listMatch" />
-      <gameElement :imgSrc="imgSrc('GameRlChoose.png')" link="/listMatch" />
+      <gameElement :imgSrc="imgSrc('GameValorantChoose.png')" link="/match/valorant" />
+      <gameElement :imgSrc="imgSrc('GameLolChoose.png')" link="/match/lol" />
+      <gameElement :imgSrc="imgSrc('GameRlChoose.png')" link="/match/rl" />
     </selectedContainer>
 
     <piedPage />
@@ -32,6 +32,11 @@ export default {
     imgSrc($imgName) {
       return require('~/assets/img/' + $imgName);
     }
+  },
+  mounted() {
+
+    this.$store.commit('action/UnDisplayMenu');
+
   }
 }
 </script>

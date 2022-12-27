@@ -6,7 +6,7 @@
           <classicButton :imgButton="imgSrc('filterIcone.svg')" action="openFilter" />
         </template>
         <template  #right>
-          <classicButton :imgButton="imgSrc('burgerIcone.svg')" action="openBurgerMenu" />
+          <classicButton :imgButton="imgSrc('burgerIcone.svg')" action="DisplayMenu" />
         </template>
       </bar>
 
@@ -22,7 +22,6 @@
 <script>
 export default {
     name: 'macthListPage',
-
     methods : {
 
       imgSrc($imgName) {
@@ -30,6 +29,11 @@ export default {
         return require('~/assets/img/' + $imgName);
         
       }
+
+    },
+    mounted() {
+
+      this.$store.commit('action/UnDisplayMenu');
 
     }
 
