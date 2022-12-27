@@ -28,13 +28,31 @@ export default {
 
         return require('~/assets/img/' + $imgName);
         
+      },
+
+      UpdatePage() {
+
+        const game = this.$route.params.listMatch;
+
+        if ( game == 'valorant' ) {
+
+          // DO ACTION FOR VALORANT
+
+        } else if ( game == 'lol' ) {
+
+          // DO ACTION FOR LOL
+
+        } else if ( game == 'rl' ) {
+
+          // DO ACTION FOR RL
+
+        }
+
       }
 
     },
     mounted() {
-
       this.$store.commit('action/UnDisplayMenu');
-
     }
 
 }

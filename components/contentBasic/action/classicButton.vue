@@ -1,7 +1,10 @@
 <template>
-    <button @click.prevent="didAction" class="btnBasic">
+    <button v-if="!calendar" @click.prevent="didAction" class="btnBasic">
       <img :src="imgButton" alt="">
-      <input  v-if="calendar" type="date" name="" id="">
+    </button>
+    <button v-else class="btnBasic">
+      <img :src="imgButton" alt="">
+      <input type="date" name="" id="">
     </button>
 </template>
 
@@ -19,8 +22,12 @@ export default {
 
     didAction() {
 
-      this.$store.commit('action/'+this.action);
+      if ( !this.calendar ) {
 
+        this.$store.commit('action/'+this.action);
+
+      }
+      
     }
 
   }
@@ -59,6 +66,7 @@ export default {
       width: 100%;
       height: 100%;
       opacity: 0;
+      cursor: pointer;
 
     }
 
