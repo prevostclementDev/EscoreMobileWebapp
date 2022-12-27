@@ -1,18 +1,17 @@
 <template>
     <div class="containerBarAction">
         <div class="left">
-          <classicButton />
+          <slot name="left"></slot>
         </div>
         <div class="right">
-            <classicButton />
-            <classicButton />
+            <slot name="right"></slot>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-  name: 'barAction'
+  name: 'barAction',
 }
 </script>
 
