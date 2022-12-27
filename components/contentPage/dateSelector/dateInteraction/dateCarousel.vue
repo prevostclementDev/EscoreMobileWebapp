@@ -57,7 +57,7 @@ export default {
       background-color: white;
       width: 45px;
       height: 45px;
-      margin: 0 10px;
+      margin: 0 5px;
       border-radius: 8px;
 
       font-family: 'Open Sans';
