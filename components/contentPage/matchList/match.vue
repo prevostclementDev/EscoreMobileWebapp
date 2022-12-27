@@ -83,7 +83,7 @@ export default {
           color: #CC0505;
 
         } 
-
+        font-family: 'Open sans', sans-serif;
         font-weight: 700;
         font-size: 18px;
         line-height: 16px;
