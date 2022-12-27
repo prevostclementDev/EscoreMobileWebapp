@@ -8,7 +8,7 @@
         </div>
     </div>
     <div v-if="srcImg != ''" class="img">
-      <img src="~/assets/img/AfficheJeuValorant.png" alt="">
+      <img :src="srcImg" alt="">
     </div>
   </div>
 </template>

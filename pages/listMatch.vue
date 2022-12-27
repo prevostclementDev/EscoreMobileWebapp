@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-      <enTete srcImg="" gameName="Valorant" />
+      <enTete :srcImg="imgSrc('AfficheJeuValorant.png')" gameName="Valorant" />
       <bar>
         <template  #left>
           <classicButton :imgButton="imgSrc('filterIcone.svg')" action="openFilter" />
