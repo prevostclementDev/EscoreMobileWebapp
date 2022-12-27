@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-      <enTete :srcImg="imgSrc('AfficheJeuValorant.png')" gameName="Valorant" />
+      <enTete :srcImg="getActiveGame.img" :gameName="getActiveGame.name" />
       <bar>
         <template  #left>
           <classicButton :imgButton="imgSrc('filterIcone.svg')" action="openFilter" />
@@ -22,6 +22,13 @@
 <script>
 export default {
     name: 'macthListPage',
+    computed:{
+
+      getActiveGame() {
+        return this.$store.state.matchList.activeGame;
+      },
+
+    },
     methods : {
 
       imgSrc($imgName) {
@@ -32,27 +39,16 @@ export default {
 
       UpdatePage() {
 
-        const game = this.$route.params.listMatch;
-
-        if ( game == 'valorant' ) {
-
-          // DO ACTION FOR VALORANT
-
-        } else if ( game == 'lol' ) {
-
-          // DO ACTION FOR LOL
-
-        } else if ( game == 'rl' ) {
-
-          // DO ACTION FOR RL
-
-        }
+        this.$store.commit('matchList/activeGame', {
+          gameName : this.$route.params.listMatch,
+        });
 
       }
 
     },
     mounted() {
       this.$store.commit('action/UnDisplayMenu');
+      this.UpdatePage();
     }
 
 }
