@@ -3,7 +3,7 @@
       <enTete :srcImg="getActiveGame.img" :gameName="getActiveGame.name" />
       <bar>
         <template  #left>
-          <classicButton :imgButton="imgSrc('filterIcone.svg')" action="openFilter" />
+          <classicButton :imgButton="imgSrc('filterIcone.svg')" action="displayFilter" />
         </template>
         <template  #right>
           <classicButton :imgButton="imgSrc('burgerIcone.svg')" action="DisplayMenu" />
@@ -15,6 +15,7 @@
       <containerList/>
   
       <piedPage />
+      <containerFilter/>
       <Menu />
     </div>
 </template>
