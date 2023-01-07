@@ -1,26 +1,18 @@
 <template>
     <div class="dateCarousel">
         <div class="buttonDate buttonPrev">
-          <button>
+          <button @click.prevent="SetCalendar(false,'back')">
             <img src="~/assets/img/arrowCarousel.svg" alt="">
           </button>
         </div>
         <div class="containDate">
-          <div class="date">
-            <div class="day">16</div>
-            <div class="month">Sept</div>
-          </div>
-          <div class="date active">
-            <div class="day">17</div>
-            <div class="month">Sept</div>
-          </div>
-          <div class="date">
-            <div class="day">18</div>
-            <div class="month">Sept</div>
+          <div v-for="(date, index) in activeLayoutDate" class="date" v-bind:class = "(index == getActiveDate.index)?'active':''" @click.prevent="SetActiveDate(date,index)">
+            <div class="day">{{ date.toLocaleString('fr-FR',{day : 'numeric'}) }}</div>
+            <div class="month">{{ date.toLocaleString('fr-FR',{month : 'short'}).slice(0,-1) }}</div>
           </div>
         </div>
         <div class="buttonDate buttonNext">
-          <button>
+          <button @click.prevent="SetCalendar(false)">
             <img src="~/assets/img/arrowCarousel.svg" alt="">
           </button>
         </div>
@@ -28,8 +20,50 @@
 </template>
 
 <script>
+
 export default {
-  name: 'carouselDate'
+  name: 'carouselDate',
+  computed : {
+
+    activeLayoutDate() {
+
+      return this.$store.state.matchList.activeLayoutDate;
+
+    },
+
+    getActiveDate() {
+
+      return this.$store.state.matchList.activeDate;
+
+    }
+
+  },
+  methods : {
+
+    SetCalendar(now = true, changeTo = "next") {
+
+      this.$store.commit('matchList/setCalendar',{
+        now : now,
+        changeTo : changeTo,
+      })
+
+    },
+
+    SetActiveDate(date,index) {
+
+      this.$store.commit('matchList/setActiveDate',{
+        date : date,
+        index : index,
+      });
+
+    },
+
+  },
+  mounted() {
+
+      this.SetCalendar();
+
+  }
 }
 </script>
 
@@ -66,6 +100,7 @@ export default {
       font-size: 12px;
       line-height: 11px;
 
+      cursor: pointer;
 
       &.active {
 
