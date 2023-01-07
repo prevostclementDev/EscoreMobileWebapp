@@ -5,7 +5,7 @@
         </div>
         <div class="rightPart">
           <classicButton :imgButton="imgSrc('calendarIcone.svg')" action="openCalendar" :calendar="true" />
-          <button class="resetBtn">reset</button>
+          <button class="resetBtn" @click.prevent="resetCalendar">reset</button>
         </div>
     </div>
 </template>
@@ -20,6 +20,15 @@ export default {
 
       return require('~/assets/img/' + $imgName);
       
+    },
+
+    resetCalendar() {
+
+      this.$store.commit('matchList/setCalendar',{
+        now : true,
+        changeTo : 'next',
+      })
+
     }
 
   }
@@ -61,6 +70,8 @@ export default {
         font-weight: 700;
         font-size: 14px;
 
+        cursor: pointer;
+        
         color: #021C29;
 
       }
