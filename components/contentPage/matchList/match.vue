@@ -1,18 +1,14 @@
 <template>
     <div class="match">
         <div class="topPart">
-          <h3>Quart final : europa League - BO5</h3>
+          <h3>{{ matchData.name }} - {{ matchData.type }}
+          </h3>
         </div>
         <div class="scorePart">
-          <div class="teams leftPart">
-            <div class="name">BDS esport</div>
-            <div class="logo"><img src="~/assets/img/teamBds.png" alt=""></div>
-            <div class="score loose">1</div>
-          </div>
-          <div class="teams rightPart">
-            <div class="name">Fnatic esport</div>
-            <div class="logo"><img src="~/assets/img/teamFnatic.png" alt=""></div>
-            <div class="score win">4</div>
+          <div class="teams " v-for="(Team, index) in matchData.teams" :class="(index == 0)?'leftPart':'rightPart'">
+            <div class="name">{{ Team.name }}</div>
+            <div class="logo"><img :src="Team.image" alt=""></div>
+            <div class="score" :class="(Team.winner)?'win':'loose'">{{ Team.score }}</div>
           </div>
         </div>
     </div>
@@ -20,7 +16,16 @@
 
 <script>
 export default {
-  name: 'match'
+  name: 'match',
+  props : {
+
+    matchData : {
+      type: Object,
+      default: {}
+    }
+
+  },
+
 }
 </script>
 
@@ -71,6 +76,7 @@ export default {
 
         max-width: 60px;
         text-align: center;
+        line-height: 100%;
 
       }
 

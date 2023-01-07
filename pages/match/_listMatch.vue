@@ -2,9 +2,9 @@
     <div class="container">
       <enTete :srcImg="getActiveGame.img" :gameName="getActiveGame.name" />
       <bar>
-        <template  #left>
-          <classicButton :imgButton="imgSrc('filterIcone.svg')" action="displayFilter" />
-        </template>
+<!--         <template  #left>
+          <classicButton :imgButton="imgSrc('filterIcone.svg')" action="displayFilter" /> // Action not working
+        </template> -->
         <template  #right>
           <classicButton :imgButton="imgSrc('burgerIcone.svg')" action="DisplayMenu" />
         </template>

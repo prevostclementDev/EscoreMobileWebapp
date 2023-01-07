@@ -1,17 +1,21 @@
 <template>
     <div class="containerMatch">
-      <Match />
-      <Match />
-      <Match />
+        <match v-for="match in getMatchList" :matchData="match" />
     </div>
 </template>
 
 <script>
-import { match } from 'assert';
-
 export default {
     name: "containerList",
-    components: { match }
+    computed : {
+
+      getMatchList() {
+
+        return this.$store.state.matchList.allMatch;
+
+      }
+
+    },
 }
 </script>
 
