@@ -4,7 +4,7 @@
     </button>
     <button v-else class="btnBasic">
       <img :src="imgButton" alt="">
-      <input type="date" name="" id="">
+      <input type="date" name="" id="" @change="(event) => changeCalendar(event)">
     </button>
 </template>
 
@@ -28,6 +28,16 @@ export default {
 
       }
       
+    },
+
+    changeCalendar(event) {
+      
+      this.$store.commit('matchList/setCalendar',{
+        now : false,
+        changeTo : event.target.value,
+      })
+
+
     }
 
   }

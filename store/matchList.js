@@ -52,6 +52,10 @@ export const state = () => ({
   
           date.setDate(date.getDate() - 1);
   
+        } else {
+
+          date = new Date(data.changeTo);
+
         }
 
       }
